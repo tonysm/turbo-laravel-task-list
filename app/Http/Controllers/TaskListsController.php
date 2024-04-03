@@ -18,7 +18,10 @@ class TaskListsController extends Controller
         ]));
 
         if ($request->wantsTurboStream()) {
-            return turbo_stream($taskList);
+            return turbo_stream([
+                turbo_stream($taskList),
+                turbo_stream()->flash(__('Task Created.')),
+            ]);
         }
 
         return back();

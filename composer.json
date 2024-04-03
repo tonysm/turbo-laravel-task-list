@@ -6,9 +6,11 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "hotwired-laravel/stimulus-laravel": "^1.1",
         "hotwired-laravel/turbo-laravel": "^2.0.0-beta5",
         "laravel/breeze": "^2.0",
         "laravel/framework": "^11.0",
+        "laravel/reverb": "@beta",
         "laravel/tinker": "^2.9"
     },
     "require-dev": {

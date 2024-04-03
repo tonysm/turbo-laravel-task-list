@@ -1,5 +1,6 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
+import plugin from 'tailwindcss/plugin';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -14,8 +15,23 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            animation: {
+                'appear-then-fade-out': 'appear-then-fade-out 3s both',
+            },
+
+            keyframes: () => ({
+                ['appear-then-fade-out']: {
+                    '0%, 100%': { opacity: 0 },
+                    '10%, 80%': { opacity: 1 },
+                },
+            }),
         },
     },
 
-    plugins: [forms],
+    plugins: [
+        forms,
+        plugin(function ({ addVariant }) {
+            return addVariant('native', ['&.native', '.native &']);
+        }),
+    ],
 };

@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use HotwiredLaravel\TurboLaravel\Http\Controllers\Concerns\InteractsWithTurboNativeNavigation;
 use Illuminate\Http\Request;
 
 class TasksController extends Controller
 {
+    use InteractsWithTurboNativeNavigation;
+
     public function edit(Task $task)
     {
         return view('tasks.edit', [
@@ -20,6 +23,6 @@ class TasksController extends Controller
             'title' => ['required'],
         ]));
 
-        return back();
+        return $this->recedeOrRedirectBack(route('dashboard'))->with('notice', __('Task Updated.'));
     }
 }
