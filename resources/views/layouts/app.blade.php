@@ -18,8 +18,8 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body @class(["font-sans antialised", "native" => request()->wasFromTurboNative()])>
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+    <body @class(["font-sans antialised min-h-screen bg-gray-100 dark:bg-gray-900", "native" => request()->wasFromTurboNative()])>
+        <div>
             @unlessturbonative
                 @include('layouts.partials.navigation')
                 @include('layouts.partials.notifications')

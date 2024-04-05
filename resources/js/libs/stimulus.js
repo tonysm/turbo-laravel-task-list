@@ -1,4 +1,5 @@
 import { Application } from '@hotwired/stimulus'
+import '@hotwired/strada'
 
 const Stimulus = Application.start()
 

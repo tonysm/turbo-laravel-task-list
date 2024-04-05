@@ -5,6 +5,9 @@
 import { Stimulus } from '../libs/stimulus'
 
 
+import Bridge__FormController from './bridge/form_controller'
+Stimulus.register('bridge--form', Bridge__FormController)
+
 import FlashController from './flash_controller'
 Stimulus.register('flash', FlashController)
 
