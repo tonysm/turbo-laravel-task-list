@@ -23,7 +23,7 @@
                         @endforeach
                     </div>
 
-                    @include('task_lists.partials.new_task_list')
+                    @include('task_lists.partials.new_task_list', ['taskList' => null])
                 </div>
             </div>
         </div>

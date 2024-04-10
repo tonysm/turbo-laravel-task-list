@@ -1,5 +1,11 @@
-<div id="@domid($taskList)">
-    <div class="w-full text-lg font-semibold">{{ $taskList->title }}</div>
+<div>
+    <x-turbo::frame :id="$taskList" class="w-full text-lg font-semibold">
+        @include('layouts.partials.frame_flash')
+
+        <a href="{{ route('task-lists.edit', $taskList) }}">
+            {{ $taskList->title }}
+        </a>
+    </x-turbo::frame>
 
     <div id="@domid($taskList, 'tasks')" class="space-y-4 peer">
         <div class="hidden only:block my-2">
