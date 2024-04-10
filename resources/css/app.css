@@ -8,3 +8,9 @@
 [type="submit"] {
     display: none;
 }
+
+[data-bridge-components~="delete-form"]
+[data-controller~="bridge--delete-form"]
+[type="submit"] {
+    display: none;
+}

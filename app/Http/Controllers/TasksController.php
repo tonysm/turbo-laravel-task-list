@@ -25,4 +25,11 @@ class TasksController extends Controller
 
         return $this->recedeOrRedirectBack(route('dashboard'))->with('notice', __('Task Updated.'));
     }
+
+    public function destroy(Task $task)
+    {
+        $task->delete();
+
+        return $this->recedeOrRedirectBack(route('dashboard'))->with('notice', __('Task Deleted.'));
+    }
 }
