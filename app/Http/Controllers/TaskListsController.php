@@ -50,4 +50,12 @@ class TaskListsController extends Controller
 
         return back()->with('notice', __('Task List Updated.'));
     }
+
+    public function destroy(TaskList $taskList)
+    {
+        $taskList->tasks->each->delete();
+        $taskList->delete();
+
+        return back()->with('notice', __('Task List Deleted.'));
+    }
 }
