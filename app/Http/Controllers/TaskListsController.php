@@ -6,6 +6,13 @@ use Illuminate\Http\Request;
 
 class TaskListsController extends Controller
 {
+    public function index(Request $request)
+    {
+        return view('task_lists.index', [
+            'taskLists' => $request->user()->taskLists()->oldest()->get(),
+        ]);
+    }
+
     public function create()
     {
         return view('task-lists.create');
