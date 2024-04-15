@@ -3,7 +3,7 @@
         @include('layouts.partials.frame_flash')
 
         <div class="flex items-center space-x-2 justify-between">
-            <div>{{ $taskList->title }}</div>
+            <div><a data-turbo-frame="_top" href="{{ route('task-lists.show', $taskList) }}">{{ $taskList->title }}</a></div>
 
             <x-dropdown align="right" width="48">
                 <x-slot name="trigger">

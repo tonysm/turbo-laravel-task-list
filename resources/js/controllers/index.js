@@ -14,6 +14,9 @@ Stimulus.register('bridge--form', Bridge__FormController)
 import FlashController from './flash_controller'
 Stimulus.register('flash', FlashController)
 
+import FormController from './form_controller'
+Stimulus.register('form', FormController)
+
 import HelloController from './hello_controller'
 Stimulus.register('hello', HelloController)
 

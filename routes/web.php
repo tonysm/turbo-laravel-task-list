@@ -11,8 +11,8 @@ Route::view('/', 'welcome');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [TaskListsController::class, 'index'])->name('dashboard');
-    Route::resource('task-lists', TaskListsController::class)->only(['create', 'store', 'edit', 'update', 'destroy']);
-    Route::resource('task-lists.tasks', TaskListTasksController::class)->only(['create', 'store']);
+    Route::resource('task-lists', TaskListsController::class)->only(['show', 'create', 'store', 'edit', 'update', 'destroy'])->parameter('task-lists', 'taskList');
+    Route::resource('task-lists.tasks', TaskListTasksController::class)->only(['create', 'store'])->parameter('task-lists', 'taskList');
     Route::resource('tasks', TasksController::class)->only(['edit', 'update', 'destroy']);
     Route::singleton('tasks.completed', CompletedController::class)->only(['update']);
 });

@@ -3,14 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\TaskList;
+use HotwiredLaravel\TurboLaravel\Http\Controllers\Concerns\InteractsWithTurboNativeNavigation;
 use Illuminate\Http\Request;
 
 class TaskListsController extends Controller
 {
+    use InteractsWithTurboNativeNavigation;
+
     public function index(Request $request)
     {
         return view('task_lists.index', [
             'taskLists' => $request->user()->taskLists()->oldest()->get(),
+        ]);
+    }
+
+    public function show(TaskList $taskList)
+    {
+        return view('task_lists.show', [
+            'taskList' => $taskList,
         ]);
     }
 
@@ -28,7 +38,7 @@ class TaskListsController extends Controller
         if ($request->wantsTurboStream()) {
             return turbo_stream([
                 turbo_stream($taskList),
-                turbo_stream()->flash(__('Task Created.')),
+                turbo_stream()->flash(__('Task List Created.')),
             ]);
         }
 
@@ -48,7 +58,7 @@ class TaskListsController extends Controller
             'title' => ['required', 'max:255'],
         ]));
 
-        return back()->with('notice', __('Task List Updated.'));
+        return $this->recedeOrRedirectTo(route('task-lists.show', $taskList))->with('notice', __('Task List Updated.'));
     }
 
     public function destroy(TaskList $taskList)
