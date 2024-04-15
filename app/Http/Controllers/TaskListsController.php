@@ -58,7 +58,7 @@ class TaskListsController extends Controller
             'title' => ['required', 'max:255'],
         ]));
 
-        return $this->recedeOrRedirectTo(route('task-lists.show', $taskList))->with('notice', __('Task List Updated.'));
+        return $this->recedeOrRedirectBack(route('task-lists.show', $taskList))->with('notice', __('Task List Updated.'));
     }
 
     public function destroy(TaskList $taskList)

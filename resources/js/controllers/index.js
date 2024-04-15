@@ -8,6 +8,9 @@ import { Stimulus } from '../libs/stimulus'
 import Bridge__DeleteFormController from './bridge/delete_form_controller'
 Stimulus.register('bridge--delete-form', Bridge__DeleteFormController)
 
+import Bridge__DropdownController from './bridge/dropdown_controller'
+Stimulus.register('bridge--dropdown', Bridge__DropdownController)
+
 import Bridge__FormController from './bridge/form_controller'
 Stimulus.register('bridge--form', Bridge__FormController)
 

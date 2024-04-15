@@ -21,8 +21,8 @@ switch ($width) {
 }
 @endphp
 
-<div class="relative" data-controller="dropdown" data-action="click@window->dropdown#closeWhenClickedOutside">
-    <div data-action="click->dropdown#toggle keydown.space->dropdown#toggle">
+<div class="relative" data-controller="dropdown bridge--dropdown" data-action="click@window->dropdown#closeWhenClickedOutside">
+    <div data-action="click->bridge--dropdown#open click->dropdown#toggle keydown.space->dropdown#toggle">
         {{ $trigger }}
     </div>
 

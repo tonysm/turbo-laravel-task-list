@@ -3,7 +3,8 @@
     action="{{ ($taskList ?? false) ? route('task-lists.update', $taskList) : route('task-lists.store') }}"
     method="post"
     class="w-full peer-has-[*]:mt-4"
-    data-controller="form"
+    data-controller="form bridge--form"
+    data-action="turbo:submit-start->bridge--form#submitStart turbo:submit-end->bridge--form#submitEnd"
 >
     @csrf
     @if ($taskList ?? false)
@@ -31,6 +32,8 @@
             <a data-form-target="cancel" class="sr-only" href="{{ ($taskList ?? false) ? route('task-lists.show', $taskList) : route('dashboard') }}">{{ __('Cancel') }}</a>
 
             <button
+                data-bridge--form-target="submit"
+                data-bridge-title="{{ __('Update') }}"
                 type="submit"
                 class="p-2 block dark:bg-gray-900 dark:text-gray-400 group-focus-within:ring-0 group-focus-within:outline-none rounded-r-md whitespace-nowrap"
             >

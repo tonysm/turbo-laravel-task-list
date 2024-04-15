@@ -23,7 +23,9 @@
                         @endforeach
                     </div>
 
+                    @unlessturbonative
                     @include('task_lists.partials.new_task_list', ['taskList' => null])
+                    @endunlessturbonative
                 </div>
             </div>
         </div>
