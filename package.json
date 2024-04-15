@@ -21,6 +21,7 @@
         "vite": "^5.0"
     },
     "dependencies": {
+        "el-transition": "^0.0.7",
         "stimulus-textarea-autogrow": "^4.1.0"
     }
 }
