@@ -25,5 +25,5 @@ npm install && npm run build
 ```bash
 php artisan serve
 php artisan queue:work --tries=1 --sleep=0
-php artisan revert:start
+php artisan reverb:start
 ```
